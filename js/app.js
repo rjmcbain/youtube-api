@@ -24,7 +24,23 @@ function initClient() {
     }).then(() => {
         // Listen for sign in state changes
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+        // Handle initial sign in state
+        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        authorizeButton.onClick = handleAuthClick;
+        signoutButton.onClick = handleSignoutClick;
     });
+}
+
+// Update UI sign in state changes
+function updateSignInStatus(isSignedIn) {
+    if(isSignedIn) {
+        authorizeButton.style.display = 'none';
+        signoutButton.style.display = 'block';
+        content.style.display = 'block';
+        videoContainer.style.display = 'block';
+    } else {
+
+    }
 }
 
 
