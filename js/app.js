@@ -46,6 +46,15 @@ function updateSignInStatus(isSignedIn) {
     }
 }
 
+// Handle login
+function handleAuthClick() {
+    gapi.auth2.getAuthInstance().signIn();
+}
+
+// Handle logout
+function handleSignoutClick() {
+    gapi.auth2.getAuthInstance().signOut();
+}
 
 
 
