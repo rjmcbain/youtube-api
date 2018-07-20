@@ -15,7 +15,17 @@ function handleClientLoad() {
     gapi.load('client:auth2', initClient);
 }
 
-
+// Init API client library and set up sign in listeners
+function initClient() {
+    gapi.client.init({
+        discoveryDocs: DISCOVERY_DOCS,
+        clientId: CLIENT_ID,
+        scopes: SCOPES
+    }).then(() => {
+        // Listen for sign in state changes
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+    });
+}
 
 
 
