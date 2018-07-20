@@ -39,7 +39,10 @@ function updateSignInStatus(isSignedIn) {
         content.style.display = 'block';
         videoContainer.style.display = 'block';
     } else {
-
+        authorizeButton.style.display = 'block';
+        signoutButton.style.display = 'none';
+        content.style.display = 'none';
+        videoContainer.style.display = 'none';
     }
 }
 
