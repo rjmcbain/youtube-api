@@ -10,6 +10,8 @@ const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
 
+const defaultChannel = 'techguyweb';
+
 // Load auth2 library
 function handleClientLoad() {
     gapi.load('client:auth2', initClient);
@@ -38,6 +40,7 @@ function updateSignInStatus(isSignedIn) {
         signoutButton.style.display = 'block';
         content.style.display = 'block';
         videoContainer.style.display = 'block';
+        getChannel(defaultChannel);
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
